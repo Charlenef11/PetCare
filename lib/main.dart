@@ -921,3 +921,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 }
+
+
+// git add . 
+// git commit -m "Ilagay mo dito kung anong binago mo" 
+// git push origin master
