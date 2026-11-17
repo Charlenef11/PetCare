@@ -14,7 +14,6 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   int _currentIndex = 0;
 
-  // Dito pinag-uugnay ang tatlong pangunahing tab sa ibaba (Dashboard, Pets, Settings)
   final List<Widget> _pages = [
     const _HomeOverviewTab(),
     const PetsScreen(),
@@ -25,7 +24,6 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_currentIndex],
-      // Modern Floating Rounded Navigation Bar (Pill Box Style)
       bottomNavigationBar: Container(
         margin: const EdgeInsets.fromLTRB(24, 0, 24, 20),
         decoration: BoxDecoration(
@@ -33,7 +31,6 @@ class _DashboardState extends State<Dashboard> {
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
-              // ignore: deprecated_member_use
               color: Colors.teal.withOpacity(0.2),
               blurRadius: 20,
               offset: const Offset(0, 8),
@@ -76,9 +73,6 @@ class _DashboardState extends State<Dashboard> {
   }
 }
 
-// ---------------------------------------------------------
-// Home Overview Tab (Dashboard Content & Live Stats)
-// ---------------------------------------------------------
 class _HomeOverviewTab extends StatelessWidget {
   const _HomeOverviewTab();
 
@@ -194,10 +188,8 @@ class _StatCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        // ignore: deprecated_member_use
         color: color.withOpacity(0.1),
         borderRadius: BorderRadius.circular(16),
-        // ignore: deprecated_member_use
         border: Border.all(color: color.withOpacity(0.3)),
       ),
       child: Column(

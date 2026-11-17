@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'pet_form.dart';
 
 class PetsScreen extends StatelessWidget {
-  const PetsScreen({super.key}); // <-- Nilinis natin dito, wala nang required docId at existingData
+  const PetsScreen({super.key});
 
   Future<void> _confirmDelete(
     BuildContext context,
@@ -54,18 +54,6 @@ class PetsScreen extends StatelessWidget {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(24)),
         ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const PetForm()),
-          );
-        },
-        backgroundColor: const Color(0xFF00796B),
-        foregroundColor: Colors.white,
-        icon: const Icon(Icons.add),
-        label: const Text('Add Pet'),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: petsCollection.snapshots(),

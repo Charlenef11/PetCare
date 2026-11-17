@@ -61,9 +61,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _logout() async {
     await FirebaseAuth.instance.signOut();
-    if (mounted) {
-      Navigator.of(context).popUntil((route) => route.isFirst);
-    }
   }
 
   @override

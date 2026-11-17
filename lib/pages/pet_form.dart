@@ -100,7 +100,8 @@ class _PetFormState extends State<PetForm> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_isEditing ? 'Edit Pet Record' : 'Add New Pet Record'),
-        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+        backgroundColor: const Color(0xFF00796B),
+        foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
@@ -110,33 +111,33 @@ class _PetFormState extends State<PetForm> {
             children: [
               TextFormField(
                 controller: _petNameController,
-                decoration: const InputDecoration(labelText: '1. Pet Name', prefixIcon: Icon(Icons.pets)),
+                decoration: const InputDecoration(labelText: 'Pet Name', prefixIcon: Icon(Icons.pets)),
                 validator: (val) => val == null || val.trim().isEmpty ? 'Please enter pet name' : null,
               ),
               const SizedBox(height: 16),
               DropdownButtonFormField<String>(
-                initialValue: _selectedSpecies,
-                decoration: const InputDecoration(labelText: '2. Species', prefixIcon: Icon(Icons.category_outlined)),
+                value: _selectedSpecies,
+                decoration: const InputDecoration(labelText: 'Species', prefixIcon: Icon(Icons.category_outlined)),
                 items: _speciesOptions.map((s) => DropdownMenuItem(value: s, child: Text(s))).toList(),
                 onChanged: (val) => setState(() => _selectedSpecies = val!),
               ),
               const SizedBox(height: 16),
               TextFormField(
                 controller: _ownerNameController,
-                decoration: const InputDecoration(labelText: '3. Owner Full Name', prefixIcon: Icon(Icons.person_outline)),
+                decoration: const InputDecoration(labelText: 'Owner Full Name', prefixIcon: Icon(Icons.person_outline)),
                 validator: (val) => val == null || val.trim().isEmpty ? 'Please enter owner name' : null,
               ),
               const SizedBox(height: 16),
               DropdownButtonFormField<String>(
-                initialValue: _selectedService,
-                decoration: const InputDecoration(labelText: '4. Clinic Service Type', prefixIcon: Icon(Icons.medical_services_outlined)),
+                value: _selectedService,
+                decoration: const InputDecoration(labelText: 'Clinic Service Type', prefixIcon: Icon(Icons.medical_services_outlined)),
                 items: _serviceOptions.map((s) => DropdownMenuItem(value: s, child: Text(s))).toList(),
                 onChanged: (val) => setState(() => _selectedService = val!),
               ),
               const SizedBox(height: 16),
               DropdownButtonFormField<String>(
-                initialValue: _selectedStatus,
-                decoration: const InputDecoration(labelText: '5. Visit Status', prefixIcon: Icon(Icons.check_circle_outline)),
+                value: _selectedStatus,
+                decoration: const InputDecoration(labelText: 'Visit Status', prefixIcon: Icon(Icons.check_circle_outline)),
                 items: _statusOptions.map((s) => DropdownMenuItem(value: s, child: Text(s))).toList(),
                 onChanged: (val) => setState(() => _selectedStatus = val!),
               ),
@@ -145,6 +146,7 @@ class _PetFormState extends State<PetForm> {
                 width: double.infinity,
                 height: 50,
                 child: FilledButton.icon(
+                  style: FilledButton.styleFrom(backgroundColor: const Color(0xFF00796B)),
                   onPressed: _isSaving ? null : _saveRecord,
                   icon: const Icon(Icons.save),
                   label: Text(_isSaving ? 'Saving...' : (_isEditing ? 'Update Record' : 'Save Record')),
