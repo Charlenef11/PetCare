@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'pets.dart';
-import 'settings.dart';
+import 'pets.dart' as pets_page;
+import 'settings.dart' as settings_page;
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -16,8 +16,8 @@ class _DashboardState extends State<Dashboard> {
 
   final List<Widget> _pages = [
     const _HomeOverviewTab(),
-    const PetsScreen(),
-    const SettingsScreen(),
+    const pets_page.PetsScreen(),
+    const settings_page.SettingsScreen(),
   ];
 
   @override
